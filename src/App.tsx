@@ -3,6 +3,13 @@ import HangmanDrawing from "./components/HangmanDrawing";
 import HangmanWord from "./components/HangmanWord";
 import Keyboard from "./components/Keyboard";
 
+const apiKey = import.meta.env.VITE_REACT_APP_API_KEY;
+
+type MyHeadersInit= HeadersInit & {
+  "X-RapidAPI-Key": string,
+  "X-RapidAPI-Host": string,
+}
+
 function App() {
   const [wordToGuess, setWordToGuess] = useState(" ");
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
@@ -42,10 +49,9 @@ function App() {
       const options: RequestInit = {
         method: "GET",
         headers: {
-          "X-RapidAPI-Key":
-            "cb85743adcmshef6dbf43d458c7fp1b7717jsn9f4c88a21e54",
+          "X-RapidAPI-Key": apiKey as string,
           "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-        },
+        } as MyHeadersInit  ,
       };
       try {
         const response = await fetch(url, options);
