@@ -58,7 +58,7 @@ Before you begin, ensure you have the following dependencies installed:
 3. Navigate to the project directory
 
    ```bash
-   `cd hangman-game`
+   `react-typescript-hangman-vite`
 
 4. Install the projects dependencies
    ```bash
